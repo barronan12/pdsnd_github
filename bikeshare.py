@@ -16,10 +16,10 @@ def get_filters():
         (str) day - name of the day of week to filter by, or "all" to apply no day filter
     """
     print('Hello! Let\'s explore some US bikeshare data!')
-    
+
     # TO DO: get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid input
     while True:
-        city = input("Which of the three cities do you waht to look at: Chicago, New York City, or Washington?\n").lower()    
+        city = input("Which of the three cities do you waht to look at: Chicago, New York City, or Washington?\n").lower()
         if city not in ("chicago", "new york city", "washington"):
             print("Data not availabe for city, please choose from the options provided")
             continue
@@ -27,9 +27,9 @@ def get_filters():
             print(city.title(),"Selected!")
             break
      #Entries are not case sensitive but must match options
-        
-    while True:     
-            month = input("What month would you like to explore: January, February, March, April, May, June or ALL\n").lower()    
+
+    while True:
+            month = input("What month would you like to explore: January, February, March, April, May, June or ALL\n").lower()
             if month not in ('january', 'february', 'march', 'april', 'may', 'june', 'all'):
                 print("Data not availabe for that specific month, please choose from selection")
                 continue
@@ -37,9 +37,9 @@ def get_filters():
                 print(month.title(),"Selected!")
                 break
      #Entries are not case sensitive but must match options
-        
-    while True: 
-        day = input("What day would you like to explore? Please type a day or type ALL for a complete weekly summary\n").lower()    
+
+    while True:
+        day = input("What day would you like to explore? Please type a day or type ALL for a complete weekly summary\n").lower()
         if day not in ('sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'all'):
             print("There seems to be a typo, please re-type your choice")
             continue
@@ -87,7 +87,7 @@ def load_data(city, month, day):
     if day != 'all':
         # filter by day of week to create the new dataframe
         df = df[df['day_of_week'] == day.title()]
- 
+
 
     return df
 
@@ -122,17 +122,17 @@ def station_stats(df):
     st_station = df['Start Station'].value_counts().idxmax()
     print("The most commonly used start station:", st_station)
     # Returns the most frequent value within indicated station
-    
+
     # TO DO: display most commonly used end station
     end_station = df['End Station'].value_counts().idxmax()
     print("The most commonly used end station:", end_station)
     # Returns the most frequent value within indicated station
-    
+
     # TO DO: display most frequent combination of start station and end station trip
     start_and_stop = df['Start Station'] + ' & ' + df['End Station']
     commom_route = start_and_stop.value_counts().idxmax()
     print("The most commonly used route:", commom_route)
-   
+
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
@@ -143,8 +143,8 @@ def trip_duration_stats(df):
     print('\nCalculating Trip Duration...\n')
     start_time = time.time()
 
-    # TO DO: display total travel time
-    
+    # TO DO: display the total travel time
+
     total_travel_time = df['Trip Duration'].sum()
     #Total time in data set is set as SECONDS
     set_time = total_travel_time
@@ -162,10 +162,10 @@ def trip_duration_stats(df):
     #Pulls remainder value after hours calculation
     second_t = set_time
     print('For the total travel time: {} days, {} hours, {} minutes and {} seconds!'.format(days_t, hour_t, minute_t, second_t))
-                                                                                            
+
 
     # TO DO: display mean travel time
-    
+
     mean_trave_time = df['Trip Duration'].mean()
     #Total time set as SECONDS
     set_time_m = mean_trave_time
@@ -198,7 +198,7 @@ def user_stats(df):
     # TO DO: Display counts of user types
     user_type = df['User Type'].value_counts()
     print('Count of type of users\n', user_type)
-    
+
 
     # TO DO: Display counts of gender
     if 'Gender' in df.columns:
@@ -217,16 +217,16 @@ def user_stats(df):
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
-    
+
 def raw_output(df):
     #Displays raw data output in sets of 5
-    
+
     view_data = input('\nWould you like to view 5 rows of individual trip data? Enter yes or no\n').lower()
-    start_loc = 0    
+    start_loc = 0
     while view_data == 'yes':
         print(df.iloc[start_loc: start_loc + 5])
         start_loc += 5
-        view_data = input('Do you wish to continue?: (Enter yes or no)\n').lower()     
+        view_data = input('Do you wish to continue?: (Enter yes or no)\n').lower()
 
 def main():
     while True:
