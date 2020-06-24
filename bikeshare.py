@@ -221,12 +221,13 @@ def user_stats(df):
 def raw_output(df):
     #Displays raw data output in sets of 5
 
-    view_data = input('\nWould you like to view 5 rows of individual trip data? Enter yes or no\n').lower()
+    view_data = input('\nWould you like to view 5 rows of individual trip data? Enter Y or N\n').lower()
     start_loc = 0
-    while view_data == 'yes':
+    while view_data == 'Y':
         print(df.iloc[start_loc: start_loc + 5])
         start_loc += 5
         view_data = input('\nDo you wish to continue?: (Enter yes or no)\n').lower()
+
 
 def main():
     while True:
