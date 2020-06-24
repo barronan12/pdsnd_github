@@ -169,7 +169,7 @@ def trip_duration_stats(df):
     mean_trave_time = df['Trip Duration'].mean()
     #Total time set as SECONDS
     set_time_m = mean_trave_time
-    days_m = set_time // (86400)
+    days_m = set_time_m // (86400)
     #Dividing how many seconds in a day to a whole number
     set_time_m = set_time_m % (86400)
     #Pulls remainder value after days calculation
