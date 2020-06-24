@@ -19,32 +19,32 @@ def get_filters():
 
     # TO DO: get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid input
     while True:
-        city = input("Which of the three cities do you waht to look at: Chicago, New York City, or Washington?\n").lower()
+        city = input("\nWhich of the three cities do you waht to look at: Chicago, New York City, or Washington?\n").lower()
         if city not in ("chicago", "new york city", "washington"):
-            print("Data not availabe for city, please choose from the options provided")
+            print("\nData not availabe for city, please choose from the options provided\n")
             continue
         else:
-            print(city.title(),"Selected!")
+            print(city.title(),"\nSelected!")
             break
      #Entries are not case sensitive but must match options
 
     while True:
-            month = input("What month would you like to explore: January, February, March, April, May, June or ALL\n").lower()
+            month = input("\nWhat month would you like to explore: January, February, March, April, May, June or ALL\n").lower()
             if month not in ('january', 'february', 'march', 'april', 'may', 'june', 'all'):
-                print("Data not availabe for that specific month, please choose from selection")
+                print("\nData not availabe for that specific month, please choose from selection\n")
                 continue
             else:
-                print(month.title(),"Selected!")
+                print(month.title(),"\nSelected!")
                 break
      #Entries are not case sensitive but must match options
 
     while True:
-        day = input("What day would you like to explore? Please type a day or type ALL for a complete weekly summary\n").lower()
+        day = input("\nWhat day would you like to explore? Please type a day or type ALL for a complete weekly summary\n").lower()
         if day not in ('sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'all'):
-            print("There seems to be a typo, please re-type your choice")
+            print("\nThere seems to be a typo, please re-type your choice\n")
             continue
         else:
-            print(day.title(),"Selected!")
+            print(day.title(),"\nSelected!")
             break
      #Entries are not case sensitive but must match options
 
@@ -169,7 +169,7 @@ def trip_duration_stats(df):
     mean_trave_time = df['Trip Duration'].mean()
     #Total time set as SECONDS
     set_time_m = mean_trave_time
-    days_m = set_time // (86400)
+    days_m = set_time_m // (86400)
     #Dividing how many seconds in a day to a whole number
     set_time_m = set_time_m % (86400)
     #Pulls remainder value after days calculation
@@ -221,12 +221,13 @@ def user_stats(df):
 def raw_output(df):
     #Displays raw data output in sets of 5
 
-    view_data = input('\nWould you like to view 5 rows of individual trip data? Enter yes or no\n').lower()
+    view_data = input('\nWould you like to view 5 rows of individual trip data? Enter Y or N\n').lower()
     start_loc = 0
-    while view_data == 'yes':
+    while view_data == 'Y':
         print(df.iloc[start_loc: start_loc + 5])
         start_loc += 5
-        view_data = input('Do you wish to continue?: (Enter yes or no)\n').lower()
+        view_data = input('\nDo you wish to continue?: (Enter yes or no)\n').lower()
+
 
 def main():
     while True:
